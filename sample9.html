@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div {
+			margin: 10px;
+			float: left;
+			border: 1px solid;
+			padding: 2px;
+		}
+	</style>
+</head>
+<body>
+	<div ><input type="number" onchange="ShowTables()" id="TableNumber"></div>
+	<div id="tables"></div>
+
+	<script type="text/javascript">
+
+		function ShowTables(){
+			//Getting the Number Entered By User
+			var selectedTable=document.getElementById("TableNumber").value
+
+			//Creating A div element to create the Tables for the Entered Number
+			var tableDiv=document.createElement("div")
+
+			//Creating a table for the Entered Number
+			var selectedResult="";
+			for(i=1; i<=10; i++){
+				selectedResult=selectedResult + selectedTable + " X " +  i + " = " + selectedTable*i + "</br>"
+			}
+
+			//Inserting the Created table in the div which created on Line no 25
+			tableDiv.innerHTML=selectedResult;
+
+			//Making the existing tables empty
+			document.getElementById("tables").innerHTML="";
+
+			// Adding dive which contains the table of the entered number
+			document.getElementById("tables").appendChild(tableDiv)
+
+		}
+		var tableNumber=prompt("Enter HOw Many Tables You Want")
+		for(j=1; j<=tableNumber; j++){
+			var myDiv=document.createElement("div")
+			var Results=""
+		for(i=1; i<=10; i++){
+			Results=Results+j + " X " + i + " = " + j*i + "</br>"
+		}
+		myDiv.innerHTML=Results
+			document.getElementById("tables").appendChild(myDiv)
+		}
+	</script>
+</body>
+</html>
